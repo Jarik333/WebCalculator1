@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Кадькулятор целых чисел</h1>
+    <p>Внимание, числа и знаки операций необходимо разделять пробелом</p>
+    <form method="post">
+        <input type="text" name="expression" value="" placeholder="Введите выражение" />
+        <input type="submit" value="Вычислить" />
+    </form>
+    <p>@ViewData["Message"]</p>
+</div>

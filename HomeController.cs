@@ -11,7 +11,7 @@ namespace WebCalculator1.Controllers
 {
     public class HomeController : Controller
     {
-        Calculator calculatorModel = new Calculator();
+        Calculator calculator = new Calculator();
 
         private readonly ILogger<HomeController> _logger;
 
@@ -32,7 +32,7 @@ namespace WebCalculator1.Controllers
             double result = 0;
             try
             {
-                result = calculatorModel.Evaluate(expression);
+                result = calculator.Evaluate(expression);
                 if ((result != double.PositiveInfinity) && (result != double.NegativeInfinity))
                 {
                     
