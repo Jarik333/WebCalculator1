@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebCalculator1
 {
-    public class Calculator
+    class Calculator
     {
         public double Evaluate(string expression)
         {
