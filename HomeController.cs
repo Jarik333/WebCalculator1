@@ -9,7 +9,7 @@ using WebCalculator1.Models;
 
 namespace WebCalculator1.Controllers
 {
-     class HomeController : Controller
+    public class HomeController : Controller
     {
         Calculator calculator = new Calculator();
 
