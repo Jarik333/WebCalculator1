@@ -1,15 +1,16 @@
-﻿
+﻿@model EFDataApp.Models.Operation
 @{
     ViewData["Title"] = "Index";
-    
+
 }
 
 <div class="text-center">
-    <h1 class="display-4">Кадькулятор целых чисел</h1>
-    <p>Внимание, числа и знаки операций необходимо разделять пробелом</p>
-    <form method="post">
-        <input type="text" name="expression" value="" placeholder="Введите выражение" />
-        <input type="submit" value="Вычислить" />
+    <h1 class="display-4">Калькулятор целых чисел</h1>
+    <p class="active">Внимание, числа и знаки операций необходимо разделять пробелом</p>
+    <form method="post" asp-controller="Home" asp-action="Index">
+        <input asp-for="Expression" type="text" name="expression" value="" placeholder="Введите выражение" />
+        <input class="text-dark" type="submit" value="Вычислить" />
+        <p>@ViewData["Message"]</p>
     </form>
-    <p>@ViewData["Message"]</p>
+    <a href="https://localhost:44301/Home/Info">Журнал операций</a>
 </div>

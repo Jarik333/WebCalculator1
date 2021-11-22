@@ -1,0 +1,12 @@
+﻿@model IEnumerable<EFDataApp.Models.Operation>
+@{
+    ViewBag.Title = "Все операции";
+}
+<table>
+    @foreach (var item in Model)
+    {
+        <tr><td>Дата/Время</td><td>Введенное выражение</td><td>Результат</td><td>Информация о пользователе</td></tr>
+        <tr><td>@item.Date</td><td>@item.Expression</td><td>@item.Result</td><td>@item.IP</td></tr>
+
+    }
+</table>
