@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.EntityFrameworkCore;
 namespace EFDataApp.Models
 {
@@ -11,7 +8,9 @@ namespace EFDataApp.Models
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();   
+          
+            Database.EnsureCreated();
         }
+        
     }
 }

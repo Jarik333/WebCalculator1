@@ -1,17 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace EFDataApp.Models
 {
     public class Operation
     {
-       public int ID { set; get; }
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { set; get; }
         public string Expression { set; get; }
         public string Result { set; get; }
-        public string Date { set; get; }
+        public DateTime Date { set; get; }
         public string IP { set; get; }
+        public string Browser { set; get; }
+        public string Error { set; get; }
       
     }
 }
