@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EFDataApp.Models;
+using WebCalculator1.Models;
+using AuthApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebCalculator1
 {
@@ -28,7 +31,14 @@ namespace WebCalculator1
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(connection));
+            services.AddDbContext<UserContext>(options =>
+                options.UseSqlServer(connection));
             services.AddControllersWithViews();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +61,9 @@ namespace WebCalculator1
 
             app.UseAuthorization();
 
+            app.UseAuthentication();    
+            app.UseAuthorization();    
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

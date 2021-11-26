@@ -9,8 +9,12 @@ using Microsoft.AspNetCore.Http;
 using PagedList;
 using System.Net.Sockets;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
+using AuthApp.ViewModels;
+
 namespace EFDataApp.Controllers
 {
+    
     public class HomeController : Controller
     {
         public ApplicationContext db;
@@ -21,17 +25,22 @@ namespace EFDataApp.Controllers
         Calculator calculator = new Calculator();
        
         private readonly ILogger<HomeController> _logger;
+       
+        
+      
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+        
         [HttpPost]
+      
         public ActionResult Index(string expression, Operation operation)
         {
             HostString httpRequest = HttpContext.Request.Host;
             operation.IP = httpRequest.ToString();
-
+           
             var userAgent = HttpContext.Request.Headers["User-Agent"];
             var uaParser = Parser.GetDefault();
             ClientInfo c = uaParser.Parse(userAgent);
@@ -70,8 +79,11 @@ namespace EFDataApp.Controllers
             }
 
             db.SaveChangesAsync();
-            return View();
+           
+                return View();
+           
         }
+       
         public  ViewResult Info(int ? page)
         {
             
